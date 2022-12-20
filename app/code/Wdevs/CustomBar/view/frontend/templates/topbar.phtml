@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var \Wdevs\CustomBar\Block\TopBar $block
+ */
+?>
+
+<?php
+if ($block->isShown()):?>
+
+    <div id="custom-topbar">
+                <span class="customer-name"
+                      role="link"
+                      tabindex="0"
+                      data-mage-init='{"dropdown":{}}'
+                      data-toggle="dropdown"
+                      data-trigger-keypress-button="true"
+                      data-bind="scope: 'customer'">
+            <span data-bind="text: customer().group"></span>
+
+        </span>
+    </div>
+
+    <?php
+endif;
