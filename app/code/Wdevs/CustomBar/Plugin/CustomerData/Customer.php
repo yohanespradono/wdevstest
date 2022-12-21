@@ -35,18 +35,14 @@ class Customer
      */
     public function afterGetSectionData(\Magento\Customer\CustomerData\Customer $subject, $result)
     {
-        if (!$this->currentCustomer->getCustomerId()) {
-            return [];
-        }
-
-        $customer = $this->currentCustomer->getCustomer();
-        $groupId = $customer->getGroupId();
         try {
+            $customer = $this->currentCustomer->getCustomer();
+            $groupId = $customer->getGroupId();
             $group = $this->groupRepository->getById($groupId);
+            $result['group'] = $group->getCode();
         } catch (\Exception $e) {
-            $group = null;
+            //log or do something
         }
-        $result['group'] = $group->getCode();
         return $result;
     }
 }
