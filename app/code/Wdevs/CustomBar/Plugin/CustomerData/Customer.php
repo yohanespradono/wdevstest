@@ -41,7 +41,7 @@ class Customer
             $group = $this->groupRepository->getById($groupId);
             $result['group'] = $group->getCode();
         } catch (\Exception $e) {
-            //log or do something
+            $result['group'] = null;
         }
         return $result;
     }
